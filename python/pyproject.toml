@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kestrel-contracts"
+version = "3.2.0"
+description = "Shared Kestrel wire contracts (pydantic models)"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.7,<3"]
+
+[tool.setuptools.packages.find]
+include = ["kestrel_contracts*"]
