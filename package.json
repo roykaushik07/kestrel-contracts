@@ -4,8 +4,7 @@
   "description": "Shared Kestrel wire contracts: Mission, TelemetryFrame, CustodyEvent, AirspaceCheck",
   "license": "UNLICENSED",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/roykaushik07/kestrel-contracts.git"
+    "url": "roykaushik07/kestrel-contracts"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
