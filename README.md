@@ -15,7 +15,7 @@ Shared wire contracts for the Kestrel medical drone delivery platform. The JSON 
 - `src/` TypeScript bindings (`@kestrel/contracts`, published to GitHub Packages)
 - `go/` Go module
 - `python/` `kestrel-contracts` wheel (pydantic v2 models)
-- `rust/` `kestrel-contracts` crate
+- `rust/` `kestrel-contracts` crate (`publish = false`; consumers depend on it through this repo's git tag, e.g. `git = "…/kestrel-contracts", tag = "v<version>"`)
 
 ## Changing a contract
 

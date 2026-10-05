@@ -71,9 +71,19 @@ type CustodyEvent struct {
 	Hash               string    `json:"hash"`
 }
 
+type ZoneType string
+
+const (
+	ZoneTypeAirport         ZoneType = "airport"
+	ZoneTypeHospitalHelipad ZoneType = "hospital_helipad"
+	ZoneTypeTfr             ZoneType = "tfr"
+	ZoneTypePrison          ZoneType = "prison"
+	ZoneTypeStadium         ZoneType = "stadium"
+)
+
 type Conflict struct {
 	ZoneID      string     `json:"zoneId"`
-	ZoneType    string     `json:"zoneType"`
+	ZoneType    ZoneType   `json:"zoneType"`
 	ActiveUntil *time.Time `json:"activeUntil,omitempty"`
 }
 

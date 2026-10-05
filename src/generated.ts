@@ -77,6 +77,6 @@ export interface AirspaceCheck {
   verdict: "clear" | "restricted" | "tfr_active" | "denied";
   route: Position[];
   maxAltitudeMeters?: number;
-  conflicts?: { zoneId: string; zoneType: string; activeUntil?: string }[];
+  conflicts?: { zoneId: string; zoneType: "airport" | "hospital_helipad" | "tfr" | "prison" | "stadium"; activeUntil?: string }[];
   waiverId?: string;
 }

@@ -98,11 +98,21 @@ pub struct CustodyEvent {
     pub hash: String,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ZoneType {
+    Airport,
+    HospitalHelipad,
+    Tfr,
+    Prison,
+    Stadium,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Conflict {
     pub zone_id: String,
-    pub zone_type: String,
+    pub zone_type: ZoneType,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub active_until: Option<DateTime<Utc>>,
 }
