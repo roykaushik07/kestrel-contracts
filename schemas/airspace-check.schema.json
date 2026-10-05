@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.kestrel-contracts.dev/airspace-check.schema.json",
+  "title": "AirspaceCheck",
+  "description": "Result of validating a planned route against airspace restrictions.",
+  "type": "object",
+  "required": ["missionId", "checkedAt", "verdict", "route"],
+  "properties": {
+    "missionId": { "type": "string" },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "verdict": { "type": "string", "enum": ["clear", "restricted", "tfr_active", "denied"] },
+    "route": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["latitude", "longitude", "altitudeMeters"],
+        "properties": {
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" },
+          "altitudeMeters": { "type": "number" }
+        }
+      }
+    },
+    "maxAltitudeMeters": { "type": "number" },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["zoneId", "zoneType"],
+        "properties": {
+          "zoneId": { "type": "string" },
+          "zoneType": { "type": "string", "enum": ["airport", "hospital_helipad", "tfr", "prison", "stadium"] },
+          "activeUntil": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "waiverId": { "type": "string" }
+  }
+}

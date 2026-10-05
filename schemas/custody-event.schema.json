@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.kestrel-contracts.dev/custody-event.schema.json",
+  "title": "CustodyEvent",
+  "description": "An append-only chain-of-custody ledger entry for a specimen.",
+  "type": "object",
+  "required": ["eventId", "specimenId", "missionId", "type", "occurredAt", "actor", "prevHash", "hash"],
+  "properties": {
+    "eventId": { "type": "string" },
+    "specimenId": { "type": "string" },
+    "missionId": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["packed", "sealed", "handed_to_drone", "departed", "temperature_excursion", "arrived", "handed_to_recipient", "rejected"]
+    },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "actor": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["technician", "drone", "system"] },
+        "id": { "type": "string" },
+        "displayName": { "type": "string" }
+      }
+    },
+    "payloadTempCelsius": { "type": "number" },
+    "note": { "type": "string" },
+    "prevHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

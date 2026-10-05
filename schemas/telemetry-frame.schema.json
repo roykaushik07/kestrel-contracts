@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.kestrel-contracts.dev/telemetry-frame.schema.json",
+  "title": "TelemetryFrame",
+  "description": "One 1 Hz telemetry sample from a drone in flight.",
+  "type": "object",
+  "required": ["droneId", "missionId", "timestamp", "position", "batteryPercent", "payloadTempCelsius"],
+  "properties": {
+    "droneId": { "type": "string" },
+    "missionId": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "position": {
+      "type": "object",
+      "required": ["latitude", "longitude", "altitudeMeters"],
+      "properties": {
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "altitudeMeters": { "type": "number" },
+        "hdop": { "type": "number", "minimum": 0 }
+      }
+    },
+    "groundSpeedMs": { "type": "number", "minimum": 0 },
+    "headingDegrees": { "type": "number", "minimum": 0, "maximum": 360 },
+    "batteryPercent": { "type": "number", "minimum": 0, "maximum": 100 },
+    "batteryVoltage": { "type": "number" },
+    "payloadTempCelsius": { "type": "number" },
+    "payloadDoorClosed": { "type": "boolean" },
+    "linkQuality": { "type": "integer", "minimum": 0, "maximum": 100 }
+  }
+}

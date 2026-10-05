@@ -1,0 +1,25 @@
+{
+  "name": "@kestrel/contracts",
+  "version": "3.2.0",
+  "description": "Shared Kestrel wire contracts: Mission, TelemetryFrame, CustodyEvent, AirspaceCheck",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roykaushik07/kestrel-contracts.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "schemas"],
+  "scripts": {
+    "generate": "./scripts/generate.sh",
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "quicktype": "^23.0.170",
+    "typescript": "^5.6.3"
+  }
+}
