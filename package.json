@@ -13,6 +13,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist", "schemas"],
+  "sideEffects": false,
   "scripts": {
     "generate": "./scripts/generate.sh",
     "build": "tsc -p tsconfig.json",
